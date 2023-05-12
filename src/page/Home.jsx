@@ -1,6 +1,8 @@
 import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {getTrendingMovies} from "../service/api";
+import Trending from "../components/Trending/Trending";
+import {Container} from "../components/Layout/Layout.styled";
 
 
 const Home = () => {
@@ -19,12 +21,10 @@ const Home = () => {
     moviesTrending()
   }, [])
   return (
-    <main>
-      <h1>Trending today</h1>
-      <ul>
-        {movies.map(m => (<li key={m.id}><Link to={`movies/${m.id}`}>{m.title}</Link></li>))}
-      </ul>
-    </main>
+    <Container>
+      <Trending movies={movies}/>
+    </Container>
+
   )
 }
 export default Home

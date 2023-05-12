@@ -2,15 +2,15 @@ import {useEffect, useState} from "react";
 import {useDebounce} from "../hooks/useDebounce";
 import {getMoviesByName} from "../service/api";
 import {Link, useLocation, useSearchParams} from "react-router-dom";
-import {createImgUrl} from "../service/ImgUrl";
+import {createImgUrl} from "../utils/ImgUrl";
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [movies, setMovies] = useState([])
 
   const location = useLocation()
-  const mov = searchParams.get('query') ?? ''
-  const searchQuery = useDebounce(mov, 500)
+  const urlQuery = searchParams.get('query') ?? ''
+  const searchQuery = useDebounce(urlQuery, 500)
 
 
 
@@ -37,7 +37,7 @@ const Movies = () => {
   return (
     <>
       <form>
-        <input type="text" autoComplete='off' onChange={updateQueryString} value={mov}/>
+        <input type="text" autoComplete='off' onChange={updateQueryString} value={urlQuery}/>
       </form>
       <ul>
         {movies.map(({id, title,poster_path}) => (

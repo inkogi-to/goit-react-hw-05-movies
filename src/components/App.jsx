@@ -1,10 +1,13 @@
 import { Route, Routes} from "react-router-dom";
+
+import Cast from "./Cast/Cast";
+import Reviews from "./Reviews";
+import Layout from "./Layout/Layout";
+
 import Home from '../page/Home'
 import Movies from '../page/Movies'
-import Cast from "./Cast";
-import Reviews from "./Reviews";
 import MoviesDetails from "../page/MoviesDetails";
-import {Layout} from "./Layout";
+
 
 
 export const App = () => {
