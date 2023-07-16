@@ -1,4 +1,3 @@
-import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {getTrendingMovies} from "../service/api";
 import Trending from "../components/Trending/Trending";
