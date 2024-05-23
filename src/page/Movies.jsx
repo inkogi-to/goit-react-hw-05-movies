@@ -4,7 +4,7 @@ import { getMoviesByName } from '../service/api';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { createImgUrl } from '../utils/ImgUrl';
 import SearchFilms from 'components/SearchFilms/SearchFilms';
-import { BiSolidMoviePlay } from 'react-icons/bi';
+import BiSolidMoviePlay from 'react-icons/bi';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -41,9 +41,15 @@ const Movies = () => {
       <ul style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', justifyContent: 'center' }}>
         {movies.map(({ id, title, poster_path }) => (
           <li key={id}>{poster_path ? <img src={createImgUrl(poster_path)} alt="poster"
-                                           style={{ width: '200px', height: '300px',borderRadius:'5px' }} /> : <BiSolidMoviePlay style={{
-            width: '200px', height: '300px', display: 'block', fill: '#444',backgroundColor:'#fff',borderRadius:'5px'
-          }} />}
+                                           style={{ width: '200px', height: '300px', borderRadius: '5px' }} /> :
+            <BiSolidMoviePlay style={{
+              width: '200px',
+              height: '300px',
+              display: 'block',
+              fill: '#444',
+              backgroundColor: '#fff',
+              borderRadius: '5px',
+            }} />}
 
             <Link to={`/movies/${id}`} state={{ from: location }} style={{
               maxWidth: '200px',

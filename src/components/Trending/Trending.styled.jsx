@@ -42,8 +42,7 @@ export const NavLink = styled(Link)`
   max-width: 800px;
   color: #12492f;
   transition: background-color 250ms linear;
-  :qw
-::""
+
 
   :hover {
     color: #0a2f35;

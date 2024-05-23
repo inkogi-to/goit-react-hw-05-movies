@@ -12,7 +12,7 @@ export const Header = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  color: ;
+
 `;
 export const LogoMovie = styled(RiMovieLine)`
   fill: #f56038;
