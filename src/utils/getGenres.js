@@ -6,3 +6,4 @@ export const getGenres = (genres) => {
   }
   return genreTags.replace(/,\s*$/, "");
 }
+ 

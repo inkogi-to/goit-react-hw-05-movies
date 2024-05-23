@@ -1,29 +1,28 @@
-import {useEffect, useState} from "react";
-import {getTrendingMovies} from "../service/api";
-import Trending from "../components/Trending/Trending";
-import {Container} from "../components/Layout/Layout.styled";
-
+import { Suspense, useEffect, useState } from 'react';
+import { getTrendingMovies } from '../service/api';
+import Trending from '../components/Trending/Trending';
+import { Container } from '../components/Layout/Layout.styled';
 
 const Home = () => {
+  const [movies, setMovies] = useState([]);
 
-  const [movies, setMovies] = useState([])
   useEffect(() => {
     const moviesTrending = async () => {
       try {
-        const getMovies = await getTrendingMovies()
-        setMovies(getMovies)
+        const getMovies = await getTrendingMovies();
+        setMovies(getMovies);
       } catch (e) {
-        console.log(e.message)
+        console.log(e.message);
       }
-
-    }
-    moviesTrending()
-  }, [])
+    };
+    moviesTrending();
+  }, []);
   return (
     <Container>
-      <Trending movies={movies}/>
+      <Suspense fallback={'Loading....'}>
+        <Trending movies={movies} />
+      </Suspense>
     </Container>
-
-  )
-}
-export default Home
+  );
+};
+export default Home;

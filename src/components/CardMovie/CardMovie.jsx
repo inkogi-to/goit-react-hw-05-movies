@@ -1,18 +1,51 @@
-import {Link} from "react-router-dom";
-import {IoMdArrowRoundBack} from 'react-icons/io';
+import { IoMdArrowRoundBack } from 'react-icons/io';
 
-import {Image, Info, List, ListItem, Title, ToBack} from "./CardMovie.styled";
+import {
+  Btn,
+  DetailItems,
+  DetailList,
+  Image,
+  Info,
+  List,
+  ListItem,
+  Title,
+  ToBack,
+} from './CardMovie.styled';
+// import { createImgUrl } from '../../utils/ImgUrl';
 
+const CardMovie = ({
+                     refLocation,
+                     posterImg,
+                     filmTitle,
+                     description,
+                     genres,
+                     dateRelease,
+                     production_companies
 
-const CardMovie = ({refLocation, posterImg, filmTitle, description, genres, dateRelease}) => {
-  console.log(genres)
+                   }) => {
+  console.log(production_companies);
   return (
     <main>
-      <ToBack to={refLocation}>{<IoMdArrowRoundBack style={{verticalAlign: 'middle'}}/>}Back</ToBack>
+      <ToBack to={refLocation}>
+        {<IoMdArrowRoundBack style={{ verticalAlign: 'middle' }} />}Back
+      </ToBack>
       <Info>
+        <div>
+          <Image src={posterImg} alt={filmTitle} width="400px" height="600px" />
+          <DetailList>
+            <DetailItems>
+              <Btn to="cast">Cast</Btn>
+            </DetailItems>
+            <DetailItems>
+              <Btn to="reviews">Reviews</Btn>
+            </DetailItems>
+          </DetailList>
+        </div>
         <List>
           <ListItem>
-            <Title>{filmTitle}({dateRelease})</Title>
+            <Title>
+              {filmTitle}({dateRelease})
+            </Title>
           </ListItem>
           <ListItem>
             <h3>Overview</h3>
@@ -21,22 +54,15 @@ const CardMovie = ({refLocation, posterImg, filmTitle, description, genres, date
           <ListItem>
             <h4>Genres</h4>
             <p>{genres}</p>
+          </ListItem><ListItem>
+            <h4>Production</h4>
+
+            {/*<img src={createImgUrl(production_companies)} alt='logo'/>*/}
           </ListItem>
         </List>
-        <div>
-          <Image src={posterImg} alt={filmTitle}/>
-          <ul>
-            <li>
-              <Link to="cast">Cast</Link>
-            </li>
-            <li>
-              <Link to="reviews">Reviews</Link>
-            </li>
-          </ul>
-        </div>
       </Info>
     </main>
+  );
+};
 
-  )
-}
-export default CardMovie
+export default CardMovie;
