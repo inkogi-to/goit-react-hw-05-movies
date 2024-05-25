@@ -48,7 +48,6 @@ export const NavLink = styled(Link)`
     color: #0a2f35;
     background-color: #f7a325;
     border-radius: 10px;
-    width: 10px;
   }
   :not(:last-child) {
     margin-bottom: 10px;
